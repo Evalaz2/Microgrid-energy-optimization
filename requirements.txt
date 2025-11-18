@@ -1,0 +1,13 @@
+# Core optimization and data processing
+pyscipopt>=4.0.0
+pandas>=1.5.0
+numpy>=1.23.0
+
+# Statistical distributions for Monte Carlo
+scipy>=1.9.0
+
+# Visualization
+matplotlib>=3.6.0
+
+# Excel file handling
+openpyxl>=3.0.0
