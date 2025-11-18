@@ -5,8 +5,8 @@ import matplotlib.pyplot as plt
 
 # ===== ΦΟΡΤΩΣΗ ΔΕΔΟΜΕΝΩΝ =====
 
-# ΣΗΜΑΝΤΙΚΟ: Χρησιμοποίησε το ΔΙΟΡΘΩΜΕΝΟ αρχείο σεναρίων
-df = pd.read_excel(r"C:\Users\30697\Desktop\ΔΙΠΛΩΜΑΤΙΚΗ\monte_carlo_scenarios_CORRECTED.xlsx")
+#  Monte carlo σεναρια
+df = pd.read_excel(r"C:\Users\30697\Desktop\ΔΙΠΛΩΜΑΤΙΚΗ\monte_carlo_scenarios.xlsx")
 
 num_scenarios = df['scenario'].nunique()
 DAY_STEPS = 96
@@ -358,3 +358,4 @@ results_df = pd.DataFrame(all_results)
 results_df.to_excel('stochastic_optimization_results.xlsx', index=False, engine='openpyxl')
 print(f"\nΤα αποτελέσματα αποθηκεύτηκαν στο: stochastic_optimization_results.xlsx ")
 print(f"Συνολικές γραμμές: {len(results_df)}")
+
