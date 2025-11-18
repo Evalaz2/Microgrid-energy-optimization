@@ -173,10 +173,10 @@ print(f"\n✓ Δημιουργήθηκαν {len(rows)} γραμμές")
 # ===== 4. ΑΠΟΘΗΚΕΥΣΗ =====
 df_scenarios = pd.DataFrame(rows)
 
-output_file = r'C:\Users\30697\Desktop\ΔΙΠΛΩΜΑΤΙΚΗ\monte_carlo_scenarios_CORRECTED.xlsx'
+output_file = r'C:\Users\30697\Desktop\ΔΙΠΛΩΜΑΤΙΚΗ\monte_carlo_scenarios.xlsx'
 df_scenarios.to_excel(output_file, index=False)
 
-print(f"✓ Αποθηκεύτηκε: monte_carlo_scenarios_CORRECTED.xlsx")
+print(f"✓ Αποθηκεύτηκε: monte_carlo_scenarios.xlsx")
 
 # ===== 5. VALIDATION =====
 print("\n" + "="*70)
@@ -236,3 +236,4 @@ print("\n" + "="*70)
 print("✓ ΟΛΟΚΛΗΡΩΘΗΚΕ ΕΠΙΤΥΧΩΣ")
 print("="*70)
 print(f"\nΑρχείο: {output_file}")
+
