@@ -46,7 +46,7 @@ Energy cost optimization in microgrids using MILP and Two-Stage Stochastic Optim
 ├── README.md
 └── requirements.txt
 ```
-```
+
 
 ## Χαρακτηριστικά
 
@@ -110,7 +110,6 @@ python src/EnergyMILPmodel.py
 ### 3. Εκτέλεση Στοχαστικού Μοντέλου
 ```
 python src/two-stage-so-kainourio.py
-```
 ```
 
 Υλοποιεί two-stage stochastic optimization:
