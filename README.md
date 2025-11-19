@@ -40,9 +40,15 @@ Energy cost optimization in microgrids using MILP and Two-Stage Stochastic Optim
 ## Δομή Project
 ```
 ├── src/
-│   ├── EnergyMILPmodel.py           # Ντετερμινιστικό μοντέλο MILP
-│   ├── kainourio-monte-carlo.py     # Δημιουργία σεναρίων Monte Carlo
-│   └── two-stage-so-kainourio.py    # Two-stage στοχαστική βελτιστοποίηση
+│ ├── EnergyMILPmodel.py # Ντετερμινιστικό μοντέλο MILP
+│ ├── kainourio-monte-carlo.py # Δημιουργία σεναρίων Monte Carlo
+│ └── two-stage-so-kainourio.py # Two-stage στοχαστική βελτιστοποίηση
+├── visualization/
+│ ├── plot-daily-costs-comparison.py
+│ ├── plot-scenario-costs.py
+│ ├── plot-energy-flows-comparison.py
+│ ├── plot-flows-by-scenario.py
+│ └── plot_battery_capacity_comparison.py
 ├── README.md
 └── requirements.txt
 ```
@@ -117,6 +123,90 @@ python src/two-stage-so-kainourio.py
 - **Second Stage**: Διορθωτικές ενέργειες για κάθε σενάριο
 
 **Έξοδος:** `stochastic_optimization_results.xlsx`
+
+## Οπτικοποίηση Αποτελεσμάτων
+
+Μετά την εκτέλεση των μοντέλων βελτιστοποίησης, το project περιλαμβάνει εργαλεία visualization για την ανάλυση και σύγκριση των αποτελεσμάτων.
+
+### Διαθέσιμα Visualization Scripts
+
+Όλα τα visualization scripts βρίσκονται στον φάκελο `visualization/`:
+#### 1. Σύγκριση Ημερήσιου Κόστους (MILP vs Two-Stage SO)
+```
+python visualization/plot-daily-costs-comparison.py
+```
+
+Συγκρίνει το ημερήσιο κόστος λειτουργίας μεταξύ της ντετερμινιστικής (MILP) και της στοχαστικής (Two-Stage SO) μεθόδου για όλες τις ημέρες του έτους.
+
+**Έξοδος:** Γραφήματα σύγκρισης κόστους ανά ημέρα
+
+---
+
+#### 2. Κόστος ανά Σενάριο (Two-Stage SO)
+```
+python visualization/plot-scenario-costs.py
+
+```
+
+Εμφανίζει το κόστος λειτουργίας για κάθε σενάριο που δημιουργήθηκε από το Monte Carlo simulation στο two-stage stochastic μοντέλο.
+
+**Έξοδος:** Ανάλυση κόστους ανά σενάριο
+
+---
+
+#### 3. Ροές Ενέργειας - Σύγκριση Μεθόδων
+```
+python visualization/plot-energy-flows-comparison.py
+```
+
+Συγκρίνει τις ροές ενέργειας (παραγωγή PV, κατανάλωση φορτίου, φόρτιση/εκφόρτιση μπαταρίας, συναλλαγές δικτύου) για μια συγκεκριμένη ημέρα μεταξύ των δύο μεθόδων.
+
+**Έξοδος:** Comparative plots ροών ενέργειας
+
+---
+
+#### 4. Ροές Ενέργειας ανά Σενάριο
+```
+python visualization/plot-flows-by-scenario.py
+```
+
+Εμφανίζει αναλυτικά τις ροές ενέργειας για διαφορετικά σενάρια του two-stage stochastic μοντέλου.
+
+**Έξοδος:** Detailed energy flow analysis per scenario
+
+---
+
+#### 5. Ανάλυση Χωρητικότητας Μπαταρίας
+```
+python visualization/plot_battery_capacity_comparison.py
+
+```
+
+Αναλύει πώς η χωρητικότητα της μπαταρίας επηρεάζει το λειτουργικό κόστος του συστήματος. Εμφανίζει τη σχέση μεταξύ χωρητικότητας (1-15 kWh) και μέσου ημερήσιου κόστους.
+
+**Έξοδος:** 
+- `battery_capacity_comparison.png` - Γραφήματα σύγκρισης
+- `battery_capacity_comparison_results.csv` - Detailed results table
+
+---
+
+### Απαιτήσεις Visualization
+
+Τα visualization scripts χρησιμοποιούν τις εξής βιβλιοθήκες:
+
+- **matplotlib** - Δημιουργία plots και γραφημάτων
+- **pandas** - Επεξεργασία και ανάλυση δεδομένων
+- **numpy** - Αριθμητικοί υπολογισμοί
+
+### Σημειώσεις
+
+Προσοχή: Τα visualization scripts απαιτούν τα output files από την εκτέλεση των μοντέλων:
+- `all_days_flows_soc.xlsx` (από το MILP μοντέλο)
+- `stochastic_optimization_results.xlsx` (από το Two-Stage SO μοντέλο)
+- `monte_carlo_scenarios_CORRECTED.xlsx` (από τη δημιουργία σεναρίων)
+
+ Tip: Μπορείς να τροποποιήσεις τα scripts για να αλλάξεις χρώματα, μεγέθη γραφημάτων, ή να προσθέσεις επιπλέον αναλύσεις.
+
 
 ## Παράμετροι Συστήματος
 
